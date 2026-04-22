@@ -1,0 +1,13 @@
+# 忽略 LeetCode 插件的缓存
+.lcpr_data/
+.vscode/
+
+# 忽略系统文件
+.DS_Store
+Thumbs.db
+
+# 忽略 Node 依赖（如果你以后装了的话）
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
