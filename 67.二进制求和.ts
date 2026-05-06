@@ -44,73 +44,30 @@ import { log } from "console"
 
 // @lc code=start
 function addBinary(a: string, b: string): string {
-    //进位
-    let up = 0
-    //反转字符串，便于操作
-    let a1 = a.split('').reverse().join('')
-    let b1 = b.split('').reverse().join('')
-    //结果字符串
-    let res = ''
-    //循环最小长度
-    let len = Math.min(a1.length, b1.length)
-    //多余字符串
-    let res1 = a1.length > b1.length ? a1.slice(b1.length) : b1.slice(a1.length)
+    let res = "";
+    let carry = 0;
+    let i = a.length - 1;
+    let j = b.length - 1;
 
-    for (let i = 0; i < len; i++) {
-        if (up == 0) {
-            if (a1[i] == '1' && b1[i] == '1') {
-                res += '0'
-                up = 1
-            }
-            else if (a1[i] == '1' || b1[i] == '1') {
-                res += '1'
-                up = 0
-            }
-            else {
-                res += '0'
-                up = 0
-            }
-        } else {
-            if (a1[i] == '1' && b1[i] == '1') {
-                res += '1'
-                up = 1
-            }
-            else if (a1[i] == '1' || b1[i] == '1') {
-                res += '0'
-                up = 1
-            }
-            else {
-                res += '1'
-                up = 0
-            }
-        }
-    }
-    //处理剩余字符串
-    //剩余字符串和之前的字符串进行拼接，取最后一位进行计算
-    //剩余字符串单独进行计算
-    let res2 = ''
-    //计算进位加和
-    if ( up == 0  && res.charAt(res.length - 1) == '0') {
-        res = res.slice(0, res.length - 1) + res1
-    } else if (up == 1) {
-        for (let i = 0; i < res1.length; i++) {
-            if (res1[i] == '1') {
-                res2 += '0'
-                up = 1
-            }
-            else {
-                res2 += '1'
-                up = 0
-            }
-        }
+    while (i >= 0 || j >= 0 || carry > 0) {
+        // 获取当前位的值，如果指针越界则补 =》解决ab两字符串长度不同时的解法
+        const digitA = i >= 0 ? parseInt(a[i]) : 0;
+        const digitB = j >= 0 ? parseInt(b[j]) : 0;
+
+        // 当前位的总和（包括进位）
+        const sum = digitA + digitB + carry;
+
+        // 结果字符串拼接（当前位是 sum % 2）
+        res = (sum % 2) + res;
+
+        // 计算新的进位
+        carry = Math.floor(sum / 2);
+
+        i--;
+        j--;
     }
 
-    //处理末位进位
-    if (up == 1) {
-        res += '1'
-    }
-    console.log(res);
-    return res.split('').reverse().join('')
+    return res;
 };
 // @lc code=end
 
@@ -129,4 +86,6 @@ function addBinary(a: string, b: string): string {
 
 
 
-addBinary("101111", "10")
+console.log(addBinary("11", "1"));       // 预期: "100"
+console.log(addBinary("1010", "1011")); // 预期: "10101"
+console.log(addBinary("101111", "10")); // 预期: "110001"
