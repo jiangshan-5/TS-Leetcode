@@ -101,6 +101,7 @@ function missingNumber(nums: number[]): number {
     }
     return res;
 };
+
 // @lc code=end
 
 

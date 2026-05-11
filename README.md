@@ -13,9 +13,9 @@
 | 难度                    | 状态 | 已完成       |
 | :---------------------- | :--- | :----------- |
 | 简单 (Easy)   | 🟢   | 35           |
-| 中等 (Medium) | 🟡   | 6            |
+| 中等 (Medium) | 🟡   | 7            |
 | 困难 (Hard)   | 🔴   | 1            |
-| 总计          | 🏆   | **42**       |
+| 总计          | 🏆   | **43**       |
 
 ---
 
@@ -42,6 +42,7 @@
 +- [X] **217** - [存在重复元素](./217.存在重复元素.ts)
 +- [X] **219** - [存在重复元素 II](./219.存在重复元素 II.ts)
 +- [X] **220** - [存在重复元素 III (Hard)](./220.存在重复元素 III.ts)
+- [X] **055** - [跳跃游戏 (Medium)](./55.跳跃游戏.ts)
 +
 
 ### 🧩 位运算 (Bit Manipulation)
@@ -100,6 +101,7 @@
 - [模拟加法 (Simulation Addition) 笔记](./Note/simulation-addition.md)
 - [位运算 (Bit Manipulation) 核心笔记](./Note/bit-manipulation.md)
 - [桶排序 (Bucket Sort) 核心笔记](./Note/bucket-sort.md)
+- [贪心算法 (Greedy Algorithm) 核心笔记](./Note/greedy-algorithm.md)
 
 
 ---
