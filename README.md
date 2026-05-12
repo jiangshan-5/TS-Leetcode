@@ -93,6 +93,7 @@
 
 ## 📝 笔记备忘
 
+- [ ] **045** - [跳跃游戏 II (Medium)](./45.跳跃游戏 II.ts) —— *待复习：贪心策略的步数统计逻辑尚不清晰*
 - [数据结构实践](./Note/linked-list-practice.ts)
 - [Hash Map 专项练习](./Note/record-practice.ts)
 - [字符串常用方法笔记](./Note/string-methods.ts)
