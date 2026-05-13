@@ -50,6 +50,24 @@ function reverseString(s: string): string {
 }
 console.log('练习3:', reverseString("  algorithm  ")); // "mhtirogla"
 
+// ==================== 知识点：删除指定下标的字符 ====================
+/**
+ * 字符串不可变，删除字符本质是拼接新串。
+ */
+function removeCharAt(str: string, index: number): string {
+    // 方法 1：slice 拼接 (推荐)
+    return str.slice(0, index) + str.slice(index + 1);
+}
+
+// 方法 2：转数组后 splice (适合多次删除)
+function removeCharByArray(str: string, index: number): string {
+    const arr = str.split('');
+    arr.splice(index, 1);
+    return arr.join('');
+}
+
+console.log('删除字符 (slice):', removeCharAt("LeetCode", 4)); // "Leetode"
+
 // ==================== 答案参考 ====================
 /*
 练习1：both are "Code"

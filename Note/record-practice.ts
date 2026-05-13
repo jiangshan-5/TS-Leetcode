@@ -166,6 +166,19 @@ cache.set('b', 2);
 console.log('练习8:', cache.get('a')); // 应该输出 1
 
 
+// ==================== 练习 9：性能优化 (Array vs Map) ====================
+// 在 LeetCode 383 (赎金信) 中，如果已知字符只有 26 个小写字母，
+// 使用 Int32Array(26) 通常比 Map<string, number> 更快。
+// TODO: 实现一个使用 Int32Array 的字符计数函数
+function countCharsOptimized(str: string): Int32Array {
+    const count = new Int32Array(26);
+    const base = 'a'.charCodeAt(0);
+    for (const char of str) {
+        count[char.charCodeAt(0) - base]++;
+    }
+    return count;
+}
+
 // ==================== 答案区域（先自己做，做不出来再看） ====================
 
 
