@@ -55,27 +55,25 @@
 
 // @lc code=start
 function jump(nums: number[]): number {
-    let step = 1
-    let maxReach = nums[0]
-    let temp = 0
-    for (let i = 0; i < nums.length; i++) {
-        if (i > maxReach) {
-            return 0
-        }
-        //记录此时的最大跳跃距离
-        maxReach = i + nums[i]
-        //遍历从 i 到 maxReach 这个区间
-        for (let j = i; j <= i + nums[i]; j++) {
-            //找这个区间最大的跳跃距离
-            temp = Math.max(temp, nums[j] + j)
-        }
-        maxReach += temp
-        step++
-        if (maxReach >= nums.length - 1) {
-            return step
+    //思路：开始时位置为0，最大跳跃距离为0，跳跃次数为0
+    //逐步更新到达nums[i]的最大跳跃距离
+    //当i - end的时候，意味着此时i-end范围内的最大跳跃距离已经被找到
+    //此时，把end更新为起始点，此时end = maxReach，步数加一
+    //循环结束的条件是end变为了最后一个下标
+    let end = 0
+    let step = 0
+    let maxReach = 0
+    for (let i = 0; i < nums.length - 1; i++) {
+        //找到在目前可达范围内的最大跳跃距离
+        maxReach = Math.max(maxReach, i + nums[i])
+        //如果到达当前跳跃的最大距离
+        if (i == end) {
+            step++
+            end = maxReach
         }
     }
-    return 0
+
+    return step
 };
 // @lc code=end
 
