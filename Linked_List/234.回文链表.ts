@@ -61,14 +61,29 @@
 function isPalindrome(head: ListNode | null): boolean {
     //快慢指针找到这个链表的中点
     let fast = head, slow = head
-    while (fast !== slow) {
-        //快指针走两步，慢指针走一步，走到慢指针正好是链表中间的时候
-        //此时快指针就会追上慢指针
-        fast = fast?.next?.next
-        slow = slow?.next
+    while (fast !== null && fast.next !== null) {
+        fast = fast.next.next
+        slow = slow.next
     }
     //反转链表，fast之后的链表进行反转
-
+    let preNext = null, curr = slow
+    while (curr) {
+        const tempNext = curr.next
+        curr.next = preNext
+        preNext = curr
+        curr = tempNext
+    }
+    //反转后的链表以preNext为头节点
+    //对比两个链表
+    let head1 = head, head2 = preNext
+    while (head1 !== null && head2 !== null) {
+        if (head1.val !== head2.val) {
+            return false
+        }
+        head1 = head1.next
+        head2 = head2.next
+    }
+    return true
 
 };
 // @lc code=end

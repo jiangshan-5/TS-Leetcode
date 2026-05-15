@@ -1,4 +1,7 @@
-# 🔗 链表核心算法手册 (Linked List Handbook)
+# 🔗 链表算法核心摘要
+
+> [!TIP]
+> **可视化学习**：建议先查看 [🎨 链表算法可视化架构图](../Linked_List/linked_list_tutorial.excalidraw)，结合图示理解以下逻辑。
 
 ## 1. 物理本质
 - **结构**：数据 (`val`) + 指向下一位的地址 (`next`)。
