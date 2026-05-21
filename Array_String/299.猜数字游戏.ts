@@ -64,26 +64,26 @@
 
 // @lc code=start
 function getHint(secret: string, guess: string): string {
-    let bulls = 0;
-    const secretCounts = new Array(10).fill(0);
-    const guessCounts = new Array(10).fill(0);
+    let bull = 0;
+    let cow = 0;
+    const secretCounts = new Int32Array(10);
+    const guessCounts = new Int32Array(10);
 
     for (let i = 0; i < secret.length; i++) {
         if (secret[i] === guess[i]) {
-            bulls++;
+            bull++;
+        } else {
+            secretCounts[secret.charCodeAt(i) - 48]++;
+            guessCounts[guess.charCodeAt(i) - 48]++;
         }
-        secretCounts[secret.charCodeAt(i) - 48]++;
-        guessCounts[guess.charCodeAt(i) - 48]++;
     }
 
-    let totalMatches = 0;
     for (let i = 0; i < 10; i++) {
-        totalMatches += Math.min(secretCounts[i], guessCounts[i]);
+        cow += Math.min(secretCounts[i], guessCounts[i]);
     }
 
-    const cows = totalMatches - bulls;
-    return `${bulls}A${cows}B`;
-};
+    return `${bull}A${cow}B`;
+}
 // @lc code=end
 
 
